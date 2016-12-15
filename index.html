@@ -2,11 +2,20 @@
 <title>Your first HTML5 Document</title>
 <p>Okay, now we’re going somewhere!</p>
 
+Form1
+<form oninput="horsepower.value = Math.round(pressure.value * flowrate.value / 1714 *1000)/1000">
+	Pressure (psi) = <input name="pressure" id="p1" type="number"><br>
+    Flow Rate (gpm) = <input name="flowrate" id="q1" type="number"><br>
+    Power (HP) = psi * gpm / 1714 = <output name="horsepower" id="horsepower" for="asdf">
+    </output>
+    </form>
+
+Form2
 <form>
   var1:<br>
   <input type="number" name="var1" min="1" max="999999" required><br>
   var2:<br>
-  <input type="number" name="var2" required><br><br>
+  <input type="number" name="var2" max="999999" required><br><br>
   <input type="submit">
   <input type="reset">
 </form>
