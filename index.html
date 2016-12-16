@@ -13,9 +13,9 @@
 
 <strong>Length conversion</strong>
 <form oninput="	ftout.value = parseFloat(ftin.value) + parseFloat(Math.round(inin.value/12*1000)/1000);
-				inout.value = parseFloat(ftin.value*12) + parseFloat(inin.value);
+		inout.value = parseFloat(ftin.value*12) + parseFloat(inin.value);
                 ftround.value = Math.round(ftout.value);
-                inremain.value = inout.value % 12">
+		inremain.value = Math.round(inout.value % 12 * 1000)/1000">
 	<input name="ftin" id="a" type="number" value="0"> ft - 
     <input name="inin" id="b" type="number" value="0"> in <br>
 	<output name="ftout" for="a b"></output> ft <br>
