@@ -3,13 +3,29 @@
 <title>Your first HTML5 Document</title>
 <p>Okay, now we’re going somewhere!</p>
 
-Form1
+<strong>Horsepower conversion</strong>
 <form oninput="horsepower.value = Math.round(pressure.value * flowrate.value / 1714 *1000)/1000">
 	Pressure (psi) = <input name="pressure" id="p1" type="number"><br>
     Flow Rate (gpm) = <input name="flowrate" id="q1" type="number"><br>
     Power (hp) = psi * gpm / 1714 = <output name="horsepower" id="horsepower" for="asdf">
     </output>
-    </form><br><br>
+    </form><br>
+
+<strong>Length conversion</strong>
+<form oninput="	ftout.value = parseFloat(ftin.value) + parseFloat(Math.round(inin.value/12*1000)/1000);
+				inout.value = parseFloat(ftin.value*12) + parseFloat(inin.value);
+                ftround.value = Math.round(ftout.value);
+                inremain.value = inout.value % 12">
+	<input name="ftin" id="a" type="number" value="0"> ft - 
+    <input name="inin" id="b" type="number" value="0"> in <br>
+	<output name="ftout" for="a b"></output> ft <br>
+    <output name="ftround" for="a b"></output> ft - 
+    <output name="inremain" for="a b"></output> in <br>
+    <output name="inout" for="a b"></output> inches <br>
+    <br>
+	</form>
+
+
 
 Form2
 <form>
