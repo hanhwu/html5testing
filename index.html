@@ -2,24 +2,47 @@
 <!DOCTYPE html>
 <title>Calc Pad</title>
 
+<head>
+<script>
+function horsepowerconversion(){
+	var pressure = parseFloat(document.getElementById("p1").value);
+    var flowrate = parseFloat(document.getElementById("q1").value);
+    var horsepower = Math.round(pressure * flowrate / 1714 * 1000) / 1000;
+    document.getElementById("hp1").value = horsepower;
+}
+
+function lengthconversion(){
+	var feet_in = parseFloat(document.getElementById("fin").value);
+    var inch_in = parseFloat(document.getElementById("inin").value);
+    var dec_feet = feet_in + inch_in / 12;
+    var dec_inch = feet_in * 12 + inch_in;
+    var rounded_feet = Math.floor(dec_feet);
+    var remainder_inch = (dec_feet - rounded_feet)*12;
+    document.getElementById("fout1").value = Math.round(dec_feet * 1000) / 1000;
+    document.getElementById("fout2").value = rounded_feet;
+    document.getElementById("inout1").value = Math.round(remainder_inch * 1000) / 1000;
+    document.getElementById("inout2").value = Math.round(dec_inch * 1000) / 1000;
+
+}
+</script>
+</head>
+
+
 <strong>Horsepower conversion</strong>
-<form oninput="horsepower.value = Math.round(pressure.value * flowrate.value / 1714 *1000)/1000">
-	Pressure (psi) = <input name="pressure" id="p1" type="number"><br>
-	Flow Rate (gpm) = <input name="flowrate" id="q1" type="number"><br>
-	Power (hp) = psi * gpm / 1714 = <output name="horsepower" id="horsepower" for="asdf"></output>
+<form oninput="horsepowerconversion()">
+	Pressure (psi) = <input id="p1" value="0" type="number"><br>
+	Flow Rate (gpm) = <input id="q1" value="0" type="number"><br>
+	Power (hp) = psi * gpm / 1714 = <output id="hp1"></output>
 </form><br>
 
 <strong>Length conversion</strong>
-<form oninput="	ftout.value = Math.round((parseFloat(ftin.value) + parseFloat(inin.value/12))*1000)/1000;
-		inout.value = Math.round((parseFloat(ftin.value*12) + parseFloat(inin.value))*1000)/1000;
-                ftfloor.value = Math.floor(ftout.value);
-		inremain.value = Math.round(inout.value % 12 * 1000)/1000">
-	<input name="ftin" id="a" type="number" value="0"> ft - 
-	<input name="inin" id="b" type="number" value="0"> in <br>
-	<output name="ftout" for="a b"></output> ft <br>
-	<output name="ftfloor" for="a b"></output> ft - 
-	<output name="inremain" for="a b"></output> in <br>
-	<output name="inout" for="a b"></output> inches <br>
+<form oninput="lengthconversion()">
+	<input id="fin" type="number" value="0"> ft - 
+	<input id="inin" type="number" value="0"> in <br>
+	<output id="fout1"></output> ft <br>
+	<output id="fout2"></output> ft -
+	<output id="inout1"></output> in <br>
+    <output id="inout2"></output> inches <br>
 </form><br>
 
 
